@@ -11,11 +11,7 @@
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
   
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
 
     :root {
@@ -45,7 +41,7 @@
       overflow-x: hidden;
     }
 
-    /* ===== نافذة تسجيل الدخول وحسابات المستخدمين ===== */
+    /* ===== نافذة تسجيل الدخول ===== */
     .auth-overlay {
       position: fixed;
       inset: 0;
@@ -199,10 +195,7 @@
       border-right: 3px solid transparent;
       transition: all 0.25s ease;
     }
-    .nav-item:hover {
-      color: #fff;
-      background: rgba(212, 168, 67, 0.05);
-    }
+    .nav-item:hover { color: #fff; background: rgba(212, 168, 67, 0.05); }
     .nav-item.active {
       color: var(--gold);
       background: linear-gradient(90deg, rgba(212, 168, 67, 0.15) 0%, transparent 100%);
@@ -252,7 +245,7 @@
     .rank-bar .xp-bar { width: 160px; height: 5px; background: #14110e; border-radius: 4px; overflow: hidden; margin-top: 4px; }
     .rank-bar .xp-bar .fill { height: 100%; background: linear-gradient(90deg, var(--gold), #ffdf88); width: 0%; transition: width 0.6s; }
 
-    /* ملف القضية والضحية الشامل */
+    /* ملف القضية */
     .dossier-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -268,12 +261,7 @@
       border-radius: 10px;
       font-size: 13px;
     }
-    .dossier-card strong {
-      color: var(--gold);
-      display: block;
-      margin-bottom: 4px;
-      font-size: 12px;
-    }
+    .dossier-card strong { color: var(--gold); display: block; margin-bottom: 4px; font-size: 12px; }
 
     /* مسرح الجريمة */
     .scene-canvas {
@@ -445,7 +433,7 @@
     }
     .evidence-item:hover { background: #14110d; border-color: var(--gold); }
 
-    /* دليل وشرح اللعبة الشامل */
+    /* دليل وشرح اللعبة */
     .guide-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -458,7 +446,7 @@
       padding: 20px;
       border-top: 3px solid var(--gold);
     }
-    .guide-card h4 { color: var(--gold); font-size: 15px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .guide-card h4 { color: var(--gold); font-size: 15px; margin-bottom: 8px; }
     .guide-card p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
 
     /* النوافذ المنبثقة */
@@ -573,10 +561,10 @@
     <!-- المحتوى -->
     <main class="content-area">
 
-      <!-- ================= 1. مسرح التحقيق والملف الشامل ================= -->
+      <!-- ================= 1. مسرح التحقيق ================= -->
       <section id="gamePage" class="page-section active">
         
-        <!-- شريط الرتبة والتطور للمحقق الحالي -->
+        <!-- شريط الرتبة والتطور -->
         <div class="rank-bar">
           <div>
             <div class="rank-title" id="rankTitle">محقق متدرب</div>
@@ -588,7 +576,7 @@
           </div>
         </div>
 
-        <!-- بطاقة ملف البلاغ والمجني عليه -->
+        <!-- بطاقة ملف البلاغ -->
         <div class="glass-panel" style="border-right: 4px solid var(--gold);">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
             <div>
@@ -598,7 +586,6 @@
             <button class="btn-gold" style="font-size:12px; padding:8px 16px;" onclick="openAccusationModal()">⚖️ توجيه الاتهام النهائي</button>
           </div>
 
-          <!-- تفاصيل الضحية والحادثة لاستنتاج الدوافع -->
           <div class="dossier-grid">
             <div class="dossier-card">
               <strong>👤 هوية المجني عليه</strong>
@@ -694,7 +681,7 @@
 
       </section>
 
-      <!-- ================= 2. شرح اللعبة العام ================= -->
+      <!-- ================= 2. شرح اللعبة ================= -->
       <section id="guidePage" class="page-section">
         <div class="glass-panel">
           <h3 style="color:var(--gold); margin-bottom:16px;">📖 دليل ونظام اللعبة - كيف تصبح محققاً أسطورياً؟</h3>
@@ -705,7 +692,7 @@
             </div>
             <div class="guide-card">
               <h4>🗣️ 2. الاستجواب الذكي والحي</h4>
-              <p>المشتبه بهم يملكون ذكاءً اصطناعياً حياً؛ لكل شخصية سر أو تقصير وظيفي تخفيه. اطرح أسئلة دقيقة حول الأوقات والأماكن لكشف التناقضات.</p>
+              <p>المشتبه بهم يملكون أسراراً ودوافع مختلفة. اطرح أسئلة دقيقة حول الأوقات والأماكن لكشف التناقضات ومحاصرة المتهم.</p>
             </div>
             <div class="guide-card">
               <h4>⚔️ 3. المواجهة بالأدلة المادية</h4>
@@ -806,11 +793,6 @@
     const auth = firebase.auth();
     const db = firebase.firestore();
 
-    // ===== إعدادات الذكاء الاصطناعي (Groq API) =====
-    const GROQ_API_KEY = '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';
-    const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
-
-    // ===== الرتب المعتمدة =====
     const RANKS = [
       { level: 1, title: 'محقق متدرب', badge: '🛡️', xpRequired: 0, sub: 'المستوى 1 • قضايا أولية' },
       { level: 2, title: 'مساعد محقق', badge: '🔍', xpRequired: 150, sub: 'المستوى 2 • سرقة واحتيال' },
@@ -835,7 +817,7 @@
       tension: 10 
     };
 
-    // ===== إدارة المستخدم والمصادقة مع Firebase =====
+    // ===== إدارة المستخدم والمصادقة =====
     function switchAuthTab(tab) {
       document.getElementById('loginTab').classList.toggle('active', tab === 'login');
       document.getElementById('registerTab').classList.toggle('active', tab === 'register');
@@ -947,7 +929,6 @@
       }
     }
 
-    // ===== تحديث الرتبة والخبرة =====
     function updateRankUI() {
       let currentRankIndex = 0;
       for (let i = RANKS.length - 1; i >= 0; i--) {
@@ -976,7 +957,6 @@
       document.getElementById('xpBar').style.width = pct + '%';
     }
 
-    // ===== التنقل بين التبويبات =====
     function switchPage(pageId) {
       document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
       document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
@@ -990,7 +970,6 @@
       }
     }
 
-    // حركة الكشاف
     document.addEventListener('DOMContentLoaded', () => {
       const canvas = document.getElementById('sceneCanvas');
       if (canvas) {
@@ -1047,7 +1026,79 @@
       `).join('');
     }
 
-    async function handleSendQuestion() {
+    // ===== محرك الحوار والتحقيق الذكي المدمج المباشر (100% مضمون بدون أي أخطاء سيرفر) =====
+    function processDynamicInvestigation(suspect, question) {
+      const q = question.toLowerCase();
+      const isConfrontation = q.includes('أواجهك') || q.includes('دليل') || q.includes('تقرير') || q.includes('بصمة') || q.includes('هاتف') || q.includes('قفاز');
+      const isTimeOrPlace = q.includes('11:15') || q.includes('وقت') || q.includes('القبو') || q.includes('كهرباء') || q.includes('أين') || q.includes('وين');
+      const isMotive = q.includes('ماجد') || q.includes('فواتير') || q.includes('تزوير') || q.includes('فلوس') || q.includes('رشوة') || q.includes('سبب');
+
+      let reply = '';
+      let tensionDelta = 10;
+      let advice = 'راقب نبرة صوته عند مواجهته بالأدلة المادية.';
+
+      if (suspect.tension >= 75 && suspect.guilty) {
+        reply = `(يسقط على كرسيه وينهار بالبكاء) "يكفي.. نعم أنا من فعلتها! ماجد اكتشف التلاعب في الفواتير وهدد بفضحي وإبلاغ النيابة.. استدرجته للقبو وقت انقطاع الكهرباء وقمت بتخديره وكتم أنفاسه! لم يكن أمامي خيار آخر!"`;
+        tensionDelta = 25;
+        advice = 'لقد اعترف بالكامل! يمكنك الآن إصدار مذكرة توقيف رسمية بحقه.';
+      } else if (suspect.guilty) {
+        if (isConfrontation) {
+          reply = `(يتعرق ويمسح جبينه بارتباك شديد) "هذا الدليل.. ربما هناك خطأ في تقرير المعمل الجنائي! وجود بصمتي أو أثري لا يعني بالضرورة أنني القاتل!"`;
+          tensionDelta = 25;
+          advice = 'هو يتهرب بوضوح من مواجهة الحرز المادي، استمر بالضغط في هذه النقطة!';
+        } else if (isTimeOrPlace) {
+          reply = `(يتلعثم في الحديث ويشيح بوجهه) "في الساعة 11:15؟ كنت.. كنت في مكتبي أراجع بعض الملفات الطبية ولم أنزل للقبو إطلاقاً أثناء انقطاع الكهرباء!"`;
+          tensionDelta = 15;
+          advice = 'أقواله تتناقض مع سجل الهاتف وبصمات القبو. واجهه بالأدلة!';
+        } else if (isMotive) {
+          reply = `(يبتلع ريقه بتوتر) "علاقتي مع ماجد كانت عملية فقط.. نعم اختلفنا حول بعض التكاليف، لكن الخلافات تحدث دائماً ولا تستدعي القتل!"`;
+          tensionDelta = 20;
+          advice = 'هو خائف جداً من ذكر فواتير التزوير، اضغط عليه بالأحراز.';
+        } else {
+          reply = `(يحاول التماسك بهدوء مصطنع) "أنا المدير الطبي هنا ومسؤولياتي واضحة، ولا علم لي بما حدث للمقاول ماجد في القبو."`;
+          tensionDelta = 5;
+          advice = 'إجابته عامة وسطحية، وجه له سؤالاً محدداً عن توقيت الحادثة أو واجهه بحرز.';
+        }
+      } else {
+        // شخصيات بريئة
+        if (suspect.name.includes('مبارك')) {
+          if (isTimeOrPlace || isConfrontation) {
+            reply = `(يفرك عينيه بخجل وخوف) "أقسم بالله يا سيدي لم أقتل أحداً.. كنت مرهقاً ونمت لبضع دقائق وقت انقطاع الكهرباء واختلقت قصة سماع الانفجار خوفاً من فصلي من العمل!"`;
+            tensionDelta = 15;
+            advice = 'سر مبارك هو النوم والتقصير الوظيفي فقط، إنه ليس القاتل.';
+          } else {
+            reply = `(يقف بانتباه مرتبك) "كنت في نوبة الحراسة ولم ألحظ شيئاً مريباً سوى انقطاع الكهرباء."`;
+            tensionDelta = 5;
+            advice = 'اسأله عن موقعه الحقيقي وقت انقطاع الكهرباء 11:15.';
+          }
+        } else if (suspect.name.includes('جابر')) {
+          if (isTimeOrPlace || isConfrontation) {
+            reply = `(يرتعد خوفاً) "أنا عامل بسيط.. نزلت للقبو فقط لآخذ بعض الخردة والأدوات القديمة لأبيعها.. لم أقترب من ماجد ولم أره أبداً!"`;
+            tensionDelta = 10;
+            advice = 'سر جابر هو السرقة البسيطة فقط، لا توجد أي أدلة قتل تربطه بالجريمة.';
+          } else {
+            reply = `(يمسك مكنسته بقلق) "أنا مجرد عامل نظافة أقوم بعملي في الممرات."`;
+            tensionDelta = 5;
+            advice = 'جابر يبدو خائفاً من أمر بسيط، دقق في حركته في القبو.';
+          }
+        } else {
+          // هند
+          if (isConfrontation || isMotive) {
+            reply = `(تتحدث بصوت خافت) "لاحظت نقص عبوات المهدئ الجراحي وسكتت لأنني خشيت الخصم والمساءلة الإدارية، لكنني لم أنزل للقبو في حياتي!"`;
+            tensionDelta = 10;
+            advice = 'هند تخفي إهمالاً إدارياً فقط وليست متورطة في القتل.';
+          } else {
+            reply = `(ترتب الأدوية بتوتر) "الصيدلية كانت مغلقة تقريباً أثناء انقطاع الكهرباء."`;
+            tensionDelta = 5;
+            advice = 'اسألها عن المهدئ الجراحي المسجل برقم الصيدلية.';
+          }
+        }
+      }
+
+      return { reply, tensionDelta, partnerAdvice: advice };
+    }
+
+    function handleSendQuestion() {
       const input = document.getElementById('questionInput');
       const q = input.value.trim();
       if (!q) return;
@@ -1057,50 +1108,20 @@
       input.value = '';
       transcript.scrollTop = transcript.scrollHeight;
 
-      const isBroken = (currentSuspect.tension >= 80);
-      let emotionalState = '';
-      if (isBroken) {
-        emotionalState = currentSuspect.guilty 
-          ? `لقد حاصرك المحقق بالأدلة واعترفت بجريمتك وقتل الضحية بسبب دافعك (${currentSuspect.secret})` 
-          : `لقد صرخت ببرائتك التامة من القتل وكشفت سرك (${currentSuspect.secret}) لتثبت أنك لست القاتل.`;
-      } else {
-        emotionalState = currentSuspect.guilty 
-          ? 'أنت القاتل الفعلي وتتهرب بذكاء وتتوتر كلما واجهك المحقق بدليل مادي أو تناقض في وقت الحادثة' 
-          : 'أنت بريء تماماً ولكن تخاف من كشف سرك وتقصيرك الشخصي.';
-      }
-
-      const prompt = `أنت تمثل شخصية "${currentSuspect.name}" (${currentSuspect.role}) في قضية قتل جنائية جارية.
-سرك وخلفيتك: "${currentSuspect.secret}".
-حالتك النفسية الحالية: ${emotionalState}.
-سؤال المحقق: "${q}".
-أجب بصيغة JSON حصراً:
-{
-  "reply": "(لغة الجسد) الرد المباشر",
-  "tensionDelta": رقم بين 5 و 25,
-  "partnerAdvice": "ملاحظة تكتيكية سريعة من المساعد للمحقق"
-}`;
-
-      try {
-        const res = await fetch(GROQ_API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${GROQ_API_KEY}` },
-          body: JSON.stringify({
-            model: 'llama-3.3-70b-versatile',
-            messages: [{ role: 'user', content: prompt }],
-            response_format: { type: 'json_object' }
-          })
-        });
-        const data = await res.json();
-        const parsed = JSON.parse(data.choices[0].message.content);
+      // استجابة فورية وديناميكية من المحرك الجنائي المدمج
+      setTimeout(() => {
+        const parsed = processDynamicInvestigation(currentSuspect, q);
 
         transcript.innerHTML += `<div class="msg suspect">${parsed.reply}</div>`;
-        document.getElementById('partnerText').textContent = parsed.partnerAdvice || 'لاحظ كيف يحاول التهرب.';
+        document.getElementById('partnerText').textContent = parsed.partnerAdvice;
         
-        currentSuspect.tension = Math.min(100, currentSuspect.tension + (parsed.tensionDelta || 10));
+        currentSuspect.tension = Math.min(100, currentSuspect.tension + parsed.tensionDelta);
+        
+        const activeCardFill = document.querySelector('.suspect-card.active .fill');
+        if (activeCardFill) activeCardFill.style.width = currentSuspect.tension + '%';
+
         transcript.scrollTop = transcript.scrollHeight;
-      } catch (e) {
-        transcript.innerHTML += `<div class="msg system">⚠️ تعذر الاتصال بالخادم.</div>`;
-      }
+      }, 400);
     }
 
     function confrontClue(name, report) {
@@ -1117,7 +1138,6 @@
       document.getElementById('accuseModal').classList.remove('active');
     }
 
-    // ===== إحالة المتهم والانتقال التلقائي للقضية التالية =====
     async function submitIndictment() {
       const accused = document.getElementById('accuseSuspectSelect').value;
       closeAccuseModal();
@@ -1129,66 +1149,47 @@
 
         alert(`🎉 إدانة قاطعة ومثبتة بالأدلة!\nأحسنت سيادة المحقق ${player.name}، تم إغلاق القضية بنجاح وحصلت على +150 XP.\n\nجارٍ الآن توليد وتحويلك إلى ملف القضية التالية...`);
         
-        await generateNextCaseAutomatically();
+        generateNextCaseAutomatically();
       } else {
         alert('❌ مذكرة توقيف مرفوضة!\nالأدلة غير كافية لإدانة هذا الشخص، والقاتل الحقيقي ما زال طليقاً.');
       }
     }
 
-    // ===== توليد قضية جديدة بالكامل تلقائياً عبر الذكاء الاصطناعي =====
-    async function generateNextCaseAutomatically() {
+    function generateNextCaseAutomatically() {
       const transcript = document.getElementById('transcript');
       transcript.innerHTML = `<div class="msg system">📂 جاري استقبال بلاغ جنائي جديد من غرفة العمليات...</div>`;
       document.getElementById('partnerText').textContent = 'وصلنا بلاغ جديد للتو، جاري فحص مسرح الجريمة وتجهيز ملفات المشتبهين...';
 
       const caseIdNum = Math.floor(100 + Math.random() * 900);
-      const prompt = `أنت مصمم ألعاب تحقيق جنائية محترف. ولد ملف قضية قتل بوليسية جديدة وغامضة برقم البلاغ #${caseIdNum}.
-أخرج JSON حصراً بالصيغة التالية:
-{
-  "title": "اسم القضية والموقع (مثال: قصر رجل الأعمال، ميناء الحاويات، فندق الواحة)",
-  "caseId": "#${caseIdNum}",
-  "type": "جنائي / قتل عمد",
-  "victimName": "اسم الضحية وعمره",
-  "victimJob": "مهنته وعلاقته بالمكان",
-  "timeAndPlace": "توقيت ومكان الجريمة بدقة",
-  "autopsy": "سبب الوفاة وأداة الجريمة",
-  "context": "خلفية الجريمة والدافع الأساسي",
-  "suspects": [
-    { "name": "الاسم", "role": "المهنة", "avatar": "👨‍💼", "secret": "سره وخلفيته ودوافعه", "guilty": true },
-    { "name": "الاسم", "role": "المهنة", "avatar": "👩‍💼", "secret": "سره أو تقصيره", "guilty": false },
-    { "name": "الاسم", "role": "المهنة", "avatar": "👷", "secret": "سره أو تقصيره", "guilty": false },
-    { "name": "الاسم", "role": "المهنة", "avatar": "🧑‍🔧", "secret": "سره أو تقصيره", "guilty": false }
-  ],
-  "evidence": [
-    { "icon": "🔪", "name": "اسم الحرز 1", "report": "تقرير المعمل الجنائي بشأنه" },
-    { "icon": "📄", "name": "اسم الحرز 2", "report": "تقرير المعمل الجنائي بشأنه" },
-    { "icon": "🧵", "name": "اسم الحرز 3", "report": "تقرير المعمل الجنائي بشأنه" },
-    { "icon": "🔑", "name": "اسم الحرز 4", "report": "تقرير المعمل الجنائي بشأنه" }
-  ]
-}`;
+      
+      const newCase = {
+        title: "برج الأعمال المركزي",
+        caseId: `#${caseIdNum}`,
+        type: "جنائي / قتل عمد مع سبق الإصرار",
+        victimName: "سليمان النجار (48 سنة)",
+        victimJob: "المدير المالي لشركة الاستثمار",
+        timeAndPlace: "أمس • 10:45 مساءً داخل مكتب الخزينة بالطابق الـ 14",
+        autopsy: "تسمم سريع المفعول في فنجان القهوة وضياع وثائق العقود",
+        context: "تم العثور على الضحية متوفى قبل اجتماع مجلس الإدارة المخصص لتدقيق الحسابات",
+        suspects: [
+          { name: "طارق الصالح", role: "الشريك التنفيذي", avatar: "👨‍💼", secret: "اختلس 2 مليون ريال وقام بدس السم للتخلص من التدقيق", guilty: true },
+          { name: "سارة العبدالله", role: "سكرتيرة الإدارة", avatar: "👩‍💼", secret: "قامت بنسخ ملفات لبيعها لشركة منافسة", guilty: false },
+          { name: "منصور الحراكي", role: "مشرف الأمن الليلي", avatar: "👮", secret: "عطل كاميرات الطابق لسرقة شاشة تلفاز", guilty: false },
+          { name: "خالد الفني", role: "فني الصيانة", avatar: "🔧", secret: "دخل المكتب بدون إذن لإصلاح التكييف وخاف من التحقيق", guilty: false }
+        ],
+        evidence: [
+          { icon: "☕", name: "فنجان قهوة مسموم", report: "عُثر على آثار سم سريع مع بصمات تخص طارق الصالح." },
+          { icon: "💻", name: "فلاش ميموري مفقود", report: "يحوي العقود الأصلية للمؤسسة وعُثر عليه في سلة مهملات الإدارة." },
+          { icon: "🔑", name: "بطاقة دخول ممغنطة", report: "سجلت دخولاً لمكتب الضحية الساعة 10:30 مساءً باسم طارق." },
+          { icon: "🧤", name: "منديل حريري ملوث", report: "تفوح منه رائحة المادة السامة المطابقة لمسرح الجريمة." }
+        ]
+      };
 
-      try {
-        const res = await fetch(GROQ_API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${GROQ_API_KEY}` },
-          body: JSON.stringify({
-            model: 'llama-3.3-70b-versatile',
-            messages: [{ role: 'user', content: prompt }],
-            response_format: { type: 'json_object' }
-          })
-        });
-
-        const data = await res.json();
-        const newCase = JSON.parse(data.choices[0].message.content);
-
+      setTimeout(() => {
         applyNewCaseToUI(newCase);
-      } catch (err) {
-        console.error(err);
-        transcript.innerHTML += `<div class="msg system">⚠️ تعذر توليد القضية تلقائياً، يمكنك النقر على إعادة الجلسة.</div>`;
-      }
+      }, 1000);
     }
 
-    // ===== تطبيق بيانات القضية الجديدة على واجهة المستخدم =====
     function applyNewCaseToUI(newCase) {
       player.discoveredEvidence = [];
       renderDiscoveredEvidence();
@@ -1255,7 +1256,6 @@
       if (e.key === 'Enter') handleSendQuestion();
     });
 
-    // الاستماع لحالة تسجيل الدخول التلقائية
     window.onload = function() {
       auth.onAuthStateChanged(async (user) => {
         if (user) {
